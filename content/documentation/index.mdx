@@ -1,0 +1,120 @@
+---
+title: Getting Started
+---
+
+# Getting Started with Your Exhibition Website
+
+Welcome! This guide will help you create your own digital exhibition website using our GitHub template. We'll walk through the initial setup process step by step.
+
+> [!TIP]
+>
+> You can delete the `content/documentation` folder and still read the documentation at [https://uib-ub.github.io/exhibition-template/documentation](https://uib-ub.github.io/exhibition-template/documentation).
+
+## What is this template?
+
+This is a **website template** specifically designed for creating digital exhibitions. Think of it like a pre-built website that you can customize with your own content - like a digital gallery or museum exhibit.
+
+**Key features:**
+- Display digital objects and images with zoom capabilities
+- Create beautiful, professional-looking pages
+- Easy to update and maintain
+- Works on all devices (phones, tablets, computers)
+- Free hosting on GitHub
+
+## Step-by-Step Setup Guide
+
+### Step 1: Create Your Own Copy
+
+1. **Click the "Use this template" button** on the GitHub page, https://github.com/uib-ub/exhibition-template
+   - This creates your own personal copy of the template
+   - It's like making a photocopy of a document - you get your own version to work with
+   - You can also use this link: https://github.com/new?template_name=exhibition-template&template_owner=uib-ub
+
+2. **Name your repository**
+   - Choose a name that describes your exhibition (e.g., "medieval-manuscripts" or "my-art-exhibition")
+   - This name will become part of your website's address
+
+3. **Configure GitHub Pages**
+    1. Go to the repository settings
+    2. Click on "Pages"
+    3. Change the source to "GitHub Action" under "Build and deployment"
+    4. Save the changes
+
+### Step 2: Open Your Workspace
+
+1. **Start a codespace** by clicking the green "Code" button
+2. **Select "Open in codespace"**
+   - This opens a web-based editor where you can make changes
+   - No need to install anything on your computer!
+
+### Step 3: Configure Your Website
+
+You need to tell the website what to call itself. Here's how:
+
+1. **Find the configuration file** called `next.config.ts`
+2. **Change the basePath** to match your repository name
+
+For example, if your repository is called "my-art-exhibition", change this line:
+
+```tsx filename="next.config.ts"
+// ... existing code ...
+basePath: "/exhibition-template",  // ← Change this line
+// ... existing code ...
+```
+
+To:
+
+```tsx filename="next.config.ts"
+// ... existing code ...
+basePath: "/my-art-exhibition",    // ← Your repository name here
+// ... existing code ...
+```
+
+**What this does:** This tells the website what its "address" will be on the internet.
+
+3. **Change the title**
+
+To change the title of your website, edit the `title` property in the `metadata` object. For example, to change the title to "My Art Exhibition", change this line:
+
+```tsx {2} filename="src/app/layout.tsx"
+export const metadata: Metadata = {
+  title: "Exhibition Template",
+  description: "Coming soon",
+};
+```
+
+Also change the `description` property to a short description of your exhibition. This will be shown in search engine results.
+
+### Step 4: Add Your Content
+
+The `content/` folder contains all your exhibition pages. Here's what you can edit:
+
+- **`index.mdx`** - Your main homepage
+- **`about.mdx`** - Information about your exhibition
+- **`contact.mdx`** - How people can reach you
+- **`theme/`** - Individual exhibition themes or sections
+
+**How to edit content:**
+- Click on any `.mdx` file in the `content/` folder
+- Edit the text between the `---` markers at the top (this is called "frontmatter")
+- Add your content below the frontmatter
+- Use simple formatting like `**bold text**` or `# headings`
+
+### Step 5: Publish Your Website
+
+1. **Save your changes** in the codespace
+2. **Commit your changes** - this is like saving a version of your work
+3. **Push to GitHub** - this uploads your changes
+4. **Wait a few minutes** for GitHub to build your website
+
+Your exhibition will be live at: `https://[your-username].github.io/[your-repository-name]/`
+
+## What's Next?
+
+Now that you have your basic setup complete, explore these resources:
+
+- **[First Steps](./first-steps)** - Start making changes to the template to learn how it works
+- **[Content Guide](./content-guide)** - Learn how to add and organize your exhibition content
+- **[UI Components](./ui-components)** - Discover the special tools for displaying digital objects
+- **[Quick Reference](./quick-reference)** - Find answers to common questions
+- **[Troubleshooting](./troubleshooting)** - Get help if something goes wrong
