@@ -1,6 +1,6 @@
 const meta = {
   'index': {
-    title: 'Exhibition Template',
+    title: 'KritKat',
     type: 'page',
     display: 'hidden',
     theme: {
