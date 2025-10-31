@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Footer, Layout, Navbar } from 'nextra-theme-docs'
-import { Banner, Head } from 'nextra/components'
+import { LastUpdated, Footer, Layout, Navbar } from 'nextra-theme-docs'
+import { Banner, Head, Search } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -17,16 +17,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Exhibition Template",
-  description: "Coming soon",
+  title: "KritKat",
+  description: "Kommer snart",
 };
 
 
-const banner = <Banner storageKey="some-key">Coming soon 🎉</Banner>
+const banner = <Banner storageKey="some-key">Kommer snart 🎉</Banner>
 
 const navbar = (
   <Navbar
-    logo={<b>Exhibition Template</b>}
+    logo={<b>KritKat</b>}
   // ... Your additional navbar options
   />
 )
@@ -40,7 +40,7 @@ export default async function RootLayout({
   return (
     <html
       // Not required, but good for SEO
-      lang="en"
+      lang="no"
       // Required to be set
       dir="ltr"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -62,8 +62,22 @@ export default async function RootLayout({
           banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/uib-ub/exhibition-template"
+          docsRepositoryBase="https://github.com/uib-ub/exhibition-kritkat-nextra"
+          toc={{
+            title: "Innhold",
+            backToTop: "Til toppen",
+          }}
+          feedback={{
+            content: null,
+          }}
           footer={footer}
+          lastUpdated={<LastUpdated locale="nb">Sist oppdatert</LastUpdated>}
+          search={<Search placeholder="Søk" emptyResult="Ingen resultater" loading="Søker..." errorText="Feil ved søk" />}
+          themeSwitch={{
+            dark: "Mørk",
+            light: "Lys",
+            system: "System",
+          }}
         >
           {children}
         </Layout>
